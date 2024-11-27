@@ -1,13 +1,20 @@
+import { useState } from 'react';
+
 function Contact() {
+  const [firstName, setFirstName] = useState('');
+
+  //   just making a space between these
   const contactCreate = () => {
-    const contactInfo = {
-      firstName: lastName,
-      city,
-      state,
-      zipCode,
-      phone,
-      email,
-    };
+    console.log(firstName);
+    // const contactInfo = {
+    //   firstName,
+    //   lastName,
+    //   city,
+    //   state,
+    //   zipCode,
+    //   phone,
+    //   email,
+    // };
   };
 
   return (
@@ -15,7 +22,14 @@ function Contact() {
       <form className="contactForm">
         <div>
           <label htmlFor="">First Name</label>
-          <input type="text" className="firstName" />
+          <input
+            type="text"
+            className="firstName"
+            value={firstName}
+            onChange={(e) => {
+              setFirstName(e.target.value);
+            }}
+          />
         </div>
         <div>
           <label htmlFor="">Last Name</label>
