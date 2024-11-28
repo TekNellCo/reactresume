@@ -81,6 +81,71 @@ body {
     border-radius: 2rem;
   }
 }
-.active {
-  transform: translateX(-50%);
+.skillsMainContainer {
+  overflow: hidden;
+  border-radius: 8px;
+  display: flex;
+  background-color: white;
+  width: 50%;
+  height: 46em;
+}
+.skillsInputCard {
+  background-color: #eff2f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6%;
+  flex: 1;
+}
+.skillContainer {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: pink;
+  width: 80%;
+  height: 10%;
+  input {
+    width: 100%;
+    flex: 1;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}
+.addSkillBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+.finishedSkillsBtn {
+  transform: translateY(200%);
+  border-radius: 8px;
+  font-size: 1.4rem;
+  width: 18rem;
+  height: 4rem;
+}
+
+.skillsRenderCard {
+  background-color: #f9efef;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.skillsContainer {
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  color: black;
+  list-style-position: inside;
+  padding: 5%;
+  height: 90%;
+  width: 90%;
 }
