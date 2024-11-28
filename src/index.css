@@ -19,9 +19,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-body {
+
+.mainContainer {
+  background-color: pink;
   height: 100svh;
   width: 100svw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .contactForm {
   display: grid;
@@ -103,7 +108,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: pink;
+  /* background-color: pink; */
   width: 80%;
   height: 10%;
   input {
@@ -148,4 +153,40 @@ body {
   padding: 5%;
   height: 90%;
   width: 90%;
+}
+.resumeSheet {
+  display: flex;
+  background-color: white;
+  aspect-ratio: 2550 / 3300;
+  height: auto;
+  height: 90%;
+}
+.sideBar {
+  gap: 0.6%;
+  color: black;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 31%;
+  background-color: #f2f4f3;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  list-style-position: inside;
+  .resumeName {
+    font-size: 2.4rem;
+    line-height: 120%;
+  }
+  .resumeEmail {
+    word-break: break-all;
+  }
+}
+.mainPage {
+  padding: 2%;
+  flex: 1;
+  color: black;
+}
+.jobNameDates {
+  font-style: italic;
 }

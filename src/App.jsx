@@ -3,6 +3,8 @@ import Contact from './contact';
 import Education from './education';
 import Experience from './experience';
 import Skills from './skills';
+import Resume from './resume';
+
 function App() {
   const [step, setStep] = useState(0);
   const [contactData, setContactData] = useState({});
@@ -33,11 +35,15 @@ function App() {
 
   return (
     <>
-      {step === 0 && <Contact onSubmit={contactInfo} />}
-      {step === 1 && <Education onSubmit={educationInfo} />}
-      {step === 2 && <Experience onSubmit={experienceInfo} />}
-      {step === 3 && <Skills onSubmit={skillInfo} finished={setStepCounter} />}
-      {step === 4 && <Contact />}
+      <div className="mainContainer">
+        {step === 0 && <Contact onSubmit={contactInfo} />}
+        {step === 1 && <Education onSubmit={educationInfo} />}
+        {step === 2 && <Experience onSubmit={experienceInfo} />}
+        {step === 3 && (
+          <Skills onSubmit={skillInfo} finished={setStepCounter} />
+        )}
+        {step === 4 && <Resume />}
+      </div>
     </>
   );
 }
