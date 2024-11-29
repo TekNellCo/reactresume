@@ -143,16 +143,31 @@
   align-items: center;
 }
 .skillsContainer {
-  overflow: scroll;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  overflow-y: auto;
   background-color: #ffffff;
   color: black;
   list-style-position: inside;
   padding: 5%;
   height: 90%;
   width: 90%;
+}
+.listSkill {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  height: 3.2em;
+  align-items: center;
+  li {
+    max-width: 71%;
+    font-size: 1.2rem;
+    flex: 1;
+    overflow: hidden;
+    text-wrap: nowrap;
+  }
+  .listRemove {
+    height: 70%;
+    width: 6%;
+  }
 }
 .resumeSheet {
   display: flex;
@@ -189,4 +204,64 @@
 }
 .jobNameDates {
   font-style: italic;
+}
+.experienceContainer {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 90%;
+  background-color: red;
+  .contactContainer {
+    width: 50%;
+    height: 60%;
+  }
+  .experiencePreviewContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eff2f9;
+    width: 50%;
+    height: 100%;
+    .experiencePreview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 4%;
+      padding-bottom: 4%;
+      overflow-y: auto;
+      background-color: white;
+      border-radius: 8px;
+      width: 90%;
+      height: 90%;
+      .tilePreview {
+        padding-left: 4%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 2%;
+        overflow: hidden;
+        background-color: #f9efef;
+        width: 90%;
+        min-height: 10%;
+        .buttonContainer {
+          display: flex;
+          justify-content: space-evenly;
+          background-color: red;
+          width: 50%;
+          height: 50%;
+        }
+        button {
+          border-radius: 8px;
+          height: 100%;
+          width: 40%;
+        }
+        p {
+          text-align: center;
+          width: 50%;
+          overflow: hidden;
+          color: black;
+        }
+      }
+    }
+  }
 }

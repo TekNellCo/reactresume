@@ -12,6 +12,12 @@ function Skills({ onSubmit, finished }) {
     onSubmit(updatedSkills);
   }
 
+  function deleteSkill(index) {
+    const updatedSkills = skillsArray.filter((booty, i) => i !== index);
+    setSkillArray(updatedSkills);
+    onSubmit(updatedSkills);
+  }
+
   return (
     <div className="skillsMainContainer">
       <div className="skillsInputCard">
@@ -37,7 +43,17 @@ function Skills({ onSubmit, finished }) {
         <div className="skillsContainer">
           <ul>
             {skillsArray.map((skill, index) => {
-              return <li key={index}>{skill}</li>;
+              return (
+                <div className="listSkill">
+                  <li key={index}>{skill}</li>
+                  <button
+                    className="listRemove"
+                    onClick={() => deleteSkill(index)}
+                  >
+                    X
+                  </button>
+                </div>
+              );
             })}
           </ul>
         </div>

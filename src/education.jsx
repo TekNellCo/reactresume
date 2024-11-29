@@ -19,68 +19,73 @@ function Education({ onSubmit }) {
   }
 
   return (
-    <div className="contactContainer">
-      <form className="contactForm">
-        <div>
-          <label htmlFor="">School Name</label>
-          <input
-            type="text"
-            className="schoolName"
-            value={schoolName}
-            onChange={(e) => {
-              setSchoolName(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label htmlFor="">School Location</label>
-          <input
-            type="text"
-            className="schoolLocation"
-            value={schoolLocation}
-            onChange={(e) => {
-              setSchoolLocation(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label htmlFor="">Degree</label>
-          <input
-            type="text"
-            className="degree"
-            value={degree}
-            onChange={(e) => {
-              setDegree(e.target.value);
-            }}
-          />
-        </div>
-        <div className="stateAndZip"></div>
-        <div>
-          <label htmlFor="">Field of study</label>
-          <input
-            type="text"
-            className="fieldOfStudy"
-            value={fieldOfStudy}
-            onChange={(e) => {
-              setFieldOfStudy(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label htmlFor="">Graduation Date</label>
-          <input
-            type="text"
-            className="graduationDate"
-            value={graduationDate}
-            onChange={(e) => {
-              setGraduationDate(e.target.value);
-            }}
-          />
-        </div>
-      </form>
-      <button onClick={educationCreate} className="contactFormButton">
-        Submit
-      </button>
+    <div className="experienceContainer">
+      <div className="contactContainer">
+        <form className="contactForm">
+          <div>
+            <label htmlFor="">School Name</label>
+            <input
+              type="text"
+              className="schoolName"
+              value={schoolName}
+              onChange={(e) => {
+                setSchoolName(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor="">School Location</label>
+            <input
+              type="text"
+              className="schoolLocation"
+              value={schoolLocation}
+              onChange={(e) => {
+                setSchoolLocation(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor="">Degree</label>
+            <input
+              type="text"
+              className="degree"
+              value={degree}
+              onChange={(e) => {
+                setDegree(e.target.value);
+              }}
+            />
+          </div>
+          <div className="stateAndZip"></div>
+          <div>
+            <label htmlFor="">Field of study</label>
+            <input
+              type="text"
+              className="fieldOfStudy"
+              value={fieldOfStudy}
+              onChange={(e) => {
+                setFieldOfStudy(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor="">Graduation Date</label>
+            <input
+              type="text"
+              className="graduationDate"
+              value={graduationDate}
+              onChange={(e) => {
+                setGraduationDate(e.target.value);
+              }}
+            />
+          </div>
+        </form>
+        <button onClick={educationCreate} className="contactFormButton">
+          Submit
+        </button>
+      </div>
+      <div className="experiencePreviewContainer">
+        <div className="experiencePreview"></div>
+      </div>
     </div>
   );
 }

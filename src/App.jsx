@@ -27,7 +27,7 @@ function App() {
   }
   function experienceInfo(experienceInformation) {
     setExperienceData(experienceInformation);
-    setStepCounter();
+    console.log(experienceInformation);
   }
   function skillInfo(skillInformation) {
     setSkillData(skillInformation);
@@ -38,7 +38,9 @@ function App() {
       <div className="mainContainer">
         {step === 0 && <Contact onSubmit={contactInfo} />}
         {step === 1 && <Education onSubmit={educationInfo} />}
-        {step === 2 && <Experience onSubmit={experienceInfo} />}
+        {step === 2 && (
+          <Experience onSubmit={experienceInfo} nextPage={setStepCounter} />
+        )}
         {step === 3 && (
           <Skills onSubmit={skillInfo} finished={setStepCounter} />
         )}
