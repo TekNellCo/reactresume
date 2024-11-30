@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Skills({ onSubmit, finished }) {
+function Skills({ onSubmit, nextPage }) {
   const [skillsArray, setSkillArray] = useState([]);
   const [skill, setSkill] = useState('');
 
@@ -35,7 +35,7 @@ function Skills({ onSubmit, finished }) {
         <button onClick={() => pushSkill(skill)} className="addSkillBtn">
           +
         </button>
-        <button className="finishedSkillsBtn" onClick={finished}>
+        <button className="finishedSkillsBtn" onClick={nextPage}>
           Finished
         </button>
       </div>

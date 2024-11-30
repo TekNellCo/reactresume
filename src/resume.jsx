@@ -17,7 +17,7 @@ function Resume() {
         <h2>Work History</h2>
         <h3 className="experienceHeader">Customer Support Specialist</h3>
         <p className="jobNameDates">Amego | December 2023 - October 2024</p>
-        <p resumeJobDescription>
+        <p className="resumeJobDescription">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui,
           repellat perspiciatis necessitatibus voluptate deserunt dolores harum
           soluta mollitia ipsum, enim voluptates nam a iusto corrupti ab eaque
