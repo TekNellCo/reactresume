@@ -190,7 +190,7 @@
   word-wrap: break-word;
   list-style-position: inside;
   .resumeName {
-    font-size: 2.4rem;
+    font-size: 20pt;
     line-height: 120%;
   }
   .resumeEmail {
@@ -246,7 +246,7 @@
         .buttonContainer {
           display: flex;
           justify-content: space-evenly;
-          background-color: red;
+          background-color: rgb(76, 0, 255);
           width: 50%;
           height: 50%;
         }
@@ -283,9 +283,15 @@
   width: auto;
   flex: 1;
   height: 90%;
-  background-color: red;
+  background-color: rgb(247, 0, 255);
   button {
     width: 28%;
     height: 4%;
   }
+}
+
+.resumeSkills {
+  word-break: break-all;
+  font-size: 12pt;
+  font-weight: normal;
 }

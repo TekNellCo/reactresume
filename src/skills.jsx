@@ -44,12 +44,9 @@ function Skills({ onSubmit, nextPage }) {
           <ul>
             {skillsArray.map((skill, index) => {
               return (
-                <div className="listSkill">
-                  <li key={index}>{skill}</li>
-                  <button
-                    className="listRemove"
-                    onClick={() => deleteSkill(index)}
-                  >
+                <div key={index} className="listSkill">
+                  <li>{skill}</li>
+                  <button className="listRemove" onClick={() => deleteSkill(index)}>
                     X
                   </button>
                 </div>

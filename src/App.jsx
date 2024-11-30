@@ -10,7 +10,7 @@ function App() {
   const [contactData, setContactData] = useState({});
   const [educationData, setEducationData] = useState({});
   const [experienceData, setExperienceData] = useState({});
-  const [skillData, setSkillData] = useState();
+  const [skillData, setSkillData] = useState([]);
   function setStepCounter(num) {
     if (step < 5) {
       setStep(step + 1);
@@ -77,7 +77,7 @@ function App() {
               )}
             </div>
 
-            <Resume />
+            <Resume contact={contactData} education={educationData} experience={experienceData} skill={skillData} />
           </div>
         )}
       </div>
