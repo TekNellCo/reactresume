@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
-function Education({ onSubmit }) {
+function Education({ onSubmit, nextPage }) {
+  const [selectedEducation, setSelectedEducation] = useState('');
+  const [educationArray, setEducationArray] = useState([]);
   const [schoolName, setSchoolName] = useState('');
   const [schoolLocation, setSchoolLocation] = useState('');
   const [degree, setDegree] = useState('');
@@ -15,7 +17,40 @@ function Education({ onSubmit }) {
       fieldOfStudy,
       graduationDate,
     };
-    onSubmit(educationInfo);
+    let updatedEducationArray;
+    if (selectedEducation) {
+      updatedEducationArray = educationArray.map((school) =>
+        school === selectedEducation ? educationInfo : school
+      );
+      setEducationArray(updatedEducationArray);
+      setSelectedEducation('');
+    } else {
+      updatedEducationArray = [...educationArray, educationInfo];
+      setEducationArray(updatedEducationArray);
+    }
+
+    setSchoolName('');
+    setSchoolLocation('');
+    setDegree('');
+    setFieldOfStudy('');
+    setGraduationDate('');
+
+    onSubmit(updatedEducationArray);
+  }
+
+  function handleEdit(education) {
+    setSchoolName(education.schoolName);
+    setSchoolLocation(education.schoolLocation);
+    setDegree(education.degree);
+    setFieldOfStudy(education.fieldOfStudy);
+    setGraduationDate(education.graduationDate);
+    setSelectedEducation(education);
+  }
+
+  function deleteEdit(index) {
+    const updateEducation = educationArray.filter((booty, i) => i != index);
+    setEducationArray(updateEducation);
+    onSubmit(updateEducation);
   }
 
   return (
@@ -82,9 +117,34 @@ function Education({ onSubmit }) {
         <button onClick={educationCreate} className="contactFormButton">
           Submit
         </button>
+        <button onClick={nextPage} className="contactFormButton">
+          Finished
+        </button>
       </div>
       <div className="experiencePreviewContainer">
-        <div className="experiencePreview"></div>
+        <div className="experiencePreview">
+          {educationArray.map((education, index) => (
+            <div key={index} className="tilePreview">
+              <p className="titleName">{education.schoolName}</p>
+              <div className="buttonContainer">
+                <button
+                  onClick={() => {
+                    handleEdit(education);
+                  }}
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => {
+                    deleteEdit(index);
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

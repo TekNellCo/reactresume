@@ -11,7 +11,7 @@ function Experience({ onSubmit, nextPage }) {
   const [endMonth, setEndMonth] = useState('');
   const [endYear, setEndYear] = useState('');
 
-  const experienceCreate = () => {
+  function experienceCreate() {
     const experienceInfo = {
       title,
       organization,
@@ -19,20 +19,19 @@ function Experience({ onSubmit, nextPage }) {
       startDate: `${startMonth} ${startYear}`,
       endDate: `${endMonth} ${endYear}`,
     };
-
+    let updatedExperienceArray;
     if (selectedExperience) {
       // Update existing experience
-      const updatedExperienceArray = experienceArray.map((exp) =>
+      updatedExperienceArray = experienceArray.map((exp) =>
         exp === selectedExperience ? experienceInfo : exp
       );
       setExperienceArray(updatedExperienceArray);
       setSelectedExperience(''); // Reset editing mode after updating
     } else {
       // Add new experience
-      const updatedExperienceArray = [...experienceArray, experienceInfo];
+      updatedExperienceArray = [...experienceArray, experienceInfo];
       setExperienceArray(updatedExperienceArray);
     }
-
     // Reset form fields
     setTitle('');
     setOrganization('');
@@ -42,9 +41,9 @@ function Experience({ onSubmit, nextPage }) {
     setEndMonth('');
     setEndYear('');
     onSubmit(updatedExperienceArray);
-  };
+  }
 
-  const handleEdit = (experience) => {
+  function handleEdit(experience) {
     // Populate form with the experience data
     setTitle(experience.title);
     setOrganization(experience.organization);
@@ -54,7 +53,7 @@ function Experience({ onSubmit, nextPage }) {
     setEndMonth(experience.endDate.split(' ')[0]);
     setEndYear(experience.endDate.split(' ')[1]);
     setSelectedExperience(experience); // Set experience to be edited
-  };
+  }
 
   //   just making a space between these
   function deleteExperience(index) {
@@ -101,7 +100,6 @@ function Experience({ onSubmit, nextPage }) {
             />
           </div>
           <div className="stateAndZip"></div>
-
           <div className="stateAndZip">
             <div className="split">
               <label htmlFor="">Start Date</label>
