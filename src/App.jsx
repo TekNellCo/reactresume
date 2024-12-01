@@ -11,9 +11,12 @@ function App() {
   const [educationData, setEducationData] = useState([]);
   const [experienceData, setExperienceData] = useState([]);
   const [skillData, setSkillData] = useState([]);
+  const [populateContact, setPopulateContact] = useState(null);
   function setStepCounter(num) {
     if (step < 5) {
       setStep(step + 1);
+    } else if (step === 6 || step === 7 || step === 8) {
+      setStep(4);
     } else {
       setStep(num);
     }
@@ -21,7 +24,7 @@ function App() {
 
   function contactInfo(contactInformation) {
     setContactData(contactInformation);
-    setStepCounter();
+    step === 0 && setStepCounter();
   }
   function educationInfo(educationInformation) {
     setEducationData(educationInformation);
@@ -36,7 +39,7 @@ function App() {
   return (
     <>
       <div className="mainContainer">
-        {step === 0 && <Contact onSubmit={contactInfo} />}
+        {step === 0 && <Contact step={step} onSubmit={contactInfo} />}
         {step === 1 && <Education onSubmit={educationInfo} nextPage={setStepCounter} />}
         {step === 2 && <Experience onSubmit={experienceInfo} nextPage={setStepCounter} />}
         {step === 3 && <Skills onSubmit={skillInfo} nextPage={setStepCounter} />}
@@ -57,22 +60,25 @@ function App() {
               )}
               {step === 5 && (
                 <>
-                  <p>Step 5</p>
+                  <Contact onSubmit={contactInfo} />
+                  <button className="resumeButton" onClick={() => setStep(4)}>
+                    Back
+                  </button>
                 </>
               )}
               {step === 6 && (
                 <>
-                  <p>Step 6</p>
+                  <Education onSubmit={educationInfo} nextPage={setStepCounter} />
                 </>
               )}
               {step === 7 && (
                 <>
-                  <p>Step 7</p>
+                  <Experience onSubmit={experienceInfo} nextPage={setStepCounter} />
                 </>
               )}
               {step === 8 && (
                 <>
-                  <p>Step 8</p>
+                  <Skills onSubmit={skillInfo} nextPage={setStepCounter} />
                 </>
               )}
             </div>
