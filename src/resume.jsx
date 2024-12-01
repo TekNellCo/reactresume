@@ -6,14 +6,15 @@ function Resume({ contact, education, experience, skill }) {
         <p className="resumeCity">{`${contact.city}, ${contact.state}, ${contact.zipCode}`}</p>
         <p className="resumeEmail">{contact.email}</p>
         <p className="resumePhone">{contact.phone}</p>
-        <p className="resumeWebsite">(NEEDS A WEBSITE)</p>
-        <h2 className="resumeSkills">
-          <ul>
-            {skill.map((skillItem, index) => (
-              <li key={index}>{skillItem}</li>
-            ))}
-          </ul>
-        </h2>
+        <p className="resumeWebsite">{contact.website}</p>
+        <h2 className="resumeSkills">Skills</h2>
+        <ul>
+          {skill.map((skillItem, index) => (
+            <li className="skillsItem" key={index}>
+              {skillItem}
+            </li>
+          ))}
+        </ul>
       </div>
       <div className="mainPage">
         <h2>Work History</h2>

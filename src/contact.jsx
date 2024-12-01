@@ -8,6 +8,7 @@ function Contact({ onSubmit }) {
   const [zipCode, setZipCode] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const [website, setWebsite] = useState('');
 
   //   just making a space between these
   const contactCreate = () => {
@@ -19,6 +20,7 @@ function Contact({ onSubmit }) {
       zipCode,
       phone,
       email,
+      website,
     };
     onSubmit(contactInfo);
   };
@@ -102,6 +104,17 @@ function Contact({ onSubmit }) {
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <label htmlFor="">Website</label>
+          <input
+            type="text"
+            className="website"
+            value={website}
+            onChange={(e) => {
+              setWebsite(e.target.value);
             }}
           />
         </div>
