@@ -10,21 +10,21 @@ function Experience({ onSubmit, nextPage }) {
   const [startYear, setStartYear] = useState('');
   const [endMonth, setEndMonth] = useState('');
   const [endYear, setEndYear] = useState('');
+  const [description, setDescription] = useState('');
 
   function experienceCreate() {
     const experienceInfo = {
       title,
       organization,
       location,
+      description,
       startDate: `${startMonth} ${startYear}`,
       endDate: `${endMonth} ${endYear}`,
     };
     let updatedExperienceArray;
     if (selectedExperience) {
       // Update existing experience
-      updatedExperienceArray = experienceArray.map((exp) =>
-        exp === selectedExperience ? experienceInfo : exp
-      );
+      updatedExperienceArray = experienceArray.map((exp) => (exp === selectedExperience ? experienceInfo : exp));
       setExperienceArray(updatedExperienceArray);
       setSelectedExperience(''); // Reset editing mode after updating
     } else {
@@ -40,6 +40,7 @@ function Experience({ onSubmit, nextPage }) {
     setStartYear('');
     setEndMonth('');
     setEndYear('');
+    setDescription('');
     onSubmit(updatedExperienceArray);
   }
 
@@ -48,6 +49,7 @@ function Experience({ onSubmit, nextPage }) {
     setTitle(experience.title);
     setOrganization(experience.organization);
     setLocation(experience.location);
+    setDescription(experience.description);
     setStartMonth(experience.startDate.split(' ')[0]);
     setStartYear(experience.startDate.split(' ')[1]);
     setEndMonth(experience.endDate.split(' ')[0]);
@@ -64,8 +66,8 @@ function Experience({ onSubmit, nextPage }) {
 
   return (
     <div className="experienceContainer">
-      <div className="contactContainer">
-        <form className="contactForm">
+      <div className="contactContainerExperience">
+        <form className="contactFormExperience">
           <div>
             <label htmlFor="">What was your title?</label>
             <input
@@ -149,6 +151,17 @@ function Experience({ onSubmit, nextPage }) {
                 }}
               />
             </div>
+          </div>
+          <div className="descriptionBox">
+            <label htmlFor="">Description</label>
+            <textarea
+              className="description"
+              type="text"
+              value={description}
+              onChange={(e) => {
+                setDescription(e.target.value);
+              }}
+            />
           </div>
         </form>
         <button onClick={experienceCreate} className="contactFormButton">

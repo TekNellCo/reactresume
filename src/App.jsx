@@ -8,8 +8,8 @@ import Resume from './resume';
 function App() {
   const [step, setStep] = useState(0);
   const [contactData, setContactData] = useState({});
-  const [educationData, setEducationData] = useState({});
-  const [experienceData, setExperienceData] = useState({});
+  const [educationData, setEducationData] = useState([]);
+  const [experienceData, setExperienceData] = useState([]);
   const [skillData, setSkillData] = useState([]);
   function setStepCounter(num) {
     if (step < 5) {

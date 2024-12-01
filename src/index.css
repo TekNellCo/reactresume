@@ -34,7 +34,7 @@
   grid-template-columns: 1fr 1fr;
   color: black;
 
-  height: 20em;
+  height: 40%;
   width: 100%;
   gap: 2%;
   div {
@@ -45,7 +45,7 @@
     }
     input {
       font-size: 1.4rem;
-      height: 52%;
+      height: 36%;
       width: 100%;
     }
   }
@@ -69,15 +69,17 @@
   }
 }
 .contactContainer {
-  background-color: white;
   width: 44%;
-  height: 26em;
-  gap: 4%;
+  height: 44%;
+  gap: 1%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   transition: 1s ease-out;
+  form {
+    height: 100%;
+  }
   .contactFormButton {
     font-size: 1.2rem;
     /* font-weight: bold; */
@@ -213,7 +215,7 @@
   background-color: red;
   .contactContainer {
     width: 50%;
-    height: 60%;
+    height: 100%;
   }
   .experiencePreviewContainer {
     display: flex;
@@ -294,4 +296,114 @@
   word-break: break-all;
   font-size: 12pt;
   font-weight: normal;
+}
+
+.descriptionBox {
+  background-color: pink;
+  grid-column: span 2;
+  textarea {
+    height: 100%;
+    font-size: 1.2rem;
+  }
+}
+.contactContainerSchool {
+  width: 44%;
+  height: 44%;
+  gap: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  form {
+    height: 100%;
+  }
+  .contactFormButton {
+    font-size: 1.2rem;
+    /* font-weight: bold; */
+    height: 3.2rem;
+    width: 18.4rem;
+    border-radius: 2rem;
+  }
+}
+.contactFormSchool {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 1fr;
+  color: black;
+  width: 100%;
+  gap: 2%;
+  div {
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    label {
+      font-weight: bold;
+    }
+    input {
+      font-size: 1.4rem;
+      height: 50%;
+      width: 100%;
+    }
+  }
+}
+.contactContainerExperience {
+  width: 44%;
+  height: 44%;
+  gap: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  form {
+    height: 100%;
+  }
+  .contactFormButton {
+    font-size: 1.2rem;
+    /* font-weight: bold; */
+    height: 3.2rem;
+    width: 18.4rem;
+    border-radius: 2rem;
+  }
+}
+.contactFormExperience {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 1fr;
+  color: black;
+  width: 100%;
+  gap: 2%;
+  div {
+    height: 100%;
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    label {
+      font-weight: bold;
+    }
+    input {
+      font-size: 1.4rem;
+      height: 50%;
+      width: 100%;
+    }
+  }
+  .stateAndZip {
+    background-color: green;
+    gap: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    .split {
+      flex: 1;
+      height: 100%;
+    }
+    .splitNoLabel {
+      background-color: yellow;
+      display: flex;
+      justify-content: end;
+      flex: 1;
+      height: 100%;
+    }
+  }
 }

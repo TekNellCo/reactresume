@@ -17,25 +17,26 @@ function Resume({ contact, education, experience, skill }) {
       </div>
       <div className="mainPage">
         <h2>Work History</h2>
-        {experience.map((experienceItem) => (
+        {experience.map((experienceItem, item) => (
           <div key={experienceItem.organization}>
             <h3 className="experienceHeader">{experienceItem.title}</h3>
             <p className="jobNameDates">{`${experienceItem.organization} | ${experienceItem.startDate} - ${experienceItem.endDate}`}</p>
-            <p className="resumeJobDescription">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, repellat perspiciatis necessitatibus voluptate deserunt dolores harum
-              soluta mollitia ipsum, enim voluptates nam a iusto corrupti ab eaque delectus accusantium modi!
-            </p>
+            <p className="resumeJobDescription">{experienceItem.description}</p>
           </div>
         ))}
-
         <h2 className="resumeEducation">Education</h2>
-        <h3 className="resumeSchoolName">
-          {education.schoolName} <i>{education.graduationDate}</i>
-        </h3>
-        <p>
-          <i>{education.schoolLocation}</i>
-        </p>
-        <p className="resumeDegree">{`${education.degree} ${education.fieldOfStudy}`}</p>
+        {education.map((educationItem, index) => (
+          <div key={educationItem.schoolName}>
+            <h3 className="resumeSchoolName">
+              {educationItem.schoolName} <i>{educationItem.graduationDate}</i>
+            </h3>
+            <p>
+              <i>{educationItem.schoolLocation}</i>
+            </p>
+            <p className="resumeDegree">{`${educationItem.degree} ${educationItem.fieldOfStudy}`}</p>
+            <p>{educationItem.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

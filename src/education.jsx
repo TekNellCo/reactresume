@@ -8,6 +8,7 @@ function Education({ onSubmit, nextPage }) {
   const [degree, setDegree] = useState('');
   const [fieldOfStudy, setFieldOfStudy] = useState('');
   const [graduationDate, setGraduationDate] = useState('');
+  const [description, setDescription] = useState('');
 
   function educationCreate() {
     const educationInfo = {
@@ -16,12 +17,11 @@ function Education({ onSubmit, nextPage }) {
       degree,
       fieldOfStudy,
       graduationDate,
+      description,
     };
     let updatedEducationArray;
     if (selectedEducation) {
-      updatedEducationArray = educationArray.map((school) =>
-        school === selectedEducation ? educationInfo : school
-      );
+      updatedEducationArray = educationArray.map((school) => (school === selectedEducation ? educationInfo : school));
       setEducationArray(updatedEducationArray);
       setSelectedEducation('');
     } else {
@@ -34,6 +34,7 @@ function Education({ onSubmit, nextPage }) {
     setDegree('');
     setFieldOfStudy('');
     setGraduationDate('');
+    setDescription('');
 
     onSubmit(updatedEducationArray);
   }
@@ -44,6 +45,7 @@ function Education({ onSubmit, nextPage }) {
     setDegree(education.degree);
     setFieldOfStudy(education.fieldOfStudy);
     setGraduationDate(education.graduationDate);
+    setDescription(education.description);
     setSelectedEducation(education);
   }
 
@@ -55,8 +57,8 @@ function Education({ onSubmit, nextPage }) {
 
   return (
     <div className="experienceContainer">
-      <div className="contactContainer">
-        <form className="contactForm">
+      <div className="contactContainerSchool">
+        <form className="contactFormSchool">
           <div>
             <label htmlFor="">School Name</label>
             <input
@@ -113,6 +115,17 @@ function Education({ onSubmit, nextPage }) {
               }}
             />
           </div>
+          <div className="descriptionBox">
+            <label htmlFor="">Description</label>
+            <textarea
+              className="description"
+              type="text"
+              value={description}
+              onChange={(e) => {
+                setDescription(e.target.value);
+              }}
+            />
+          </div>
         </form>
         <button onClick={educationCreate} className="contactFormButton">
           Submit
@@ -130,15 +143,13 @@ function Education({ onSubmit, nextPage }) {
                 <button
                   onClick={() => {
                     handleEdit(education);
-                  }}
-                >
+                  }}>
                   Edit
                 </button>
                 <button
                   onClick={() => {
                     deleteEdit(index);
-                  }}
-                >
+                  }}>
                   Delete
                 </button>
               </div>
