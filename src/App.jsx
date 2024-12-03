@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 import Contact from './contact';
 import Education from './education';
 import Experience from './experience';
@@ -6,18 +7,47 @@ import Skills from './skills';
 import Resume from './resume';
 
 function App() {
+  ////Local Storage, Checks if there is data, if not, add defaults
   const [step, setStep] = useState(() => {
     const savedStep = localStorage.getItem('step');
     return savedStep ? JSON.parse(savedStep) : 0;
   });
   const [contactData, setContactData] = useState(() => {
-    const saveContacts = localStorage.getItem('contactData');
-    return saveContacts ? JSON.parse(saveContacts) : {};
+    const savedContacts = localStorage.getItem('contactData');
+    return savedContacts ? JSON.parse(savedContacts) : {};
   });
 
-  const [educationData, setEducationData] = useState([]);
-  const [experienceData, setExperienceData] = useState([]);
-  const [skillData, setSkillData] = useState([]);
+  const [educationData, setEducationData] = useState(() => {
+    const savedEducation = localStorage.getItem('educationData');
+    return savedEducation ? JSON.parse(savedEducation) : [];
+  });
+  const [experienceData, setExperienceData] = useState(() => {
+    const savedExperience = localStorage.getItem('experienceData');
+    return savedExperience ? JSON.parse(savedExperience) : [];
+  });
+  const [skillData, setSkillData] = useState(() => {
+    const savedSkills = localStorage.getItem('skillData');
+    return savedSkills ? JSON.parse(savedSkills) : [];
+  });
+
+  ////stores data every time it updates
+  useEffect(() => {
+    localStorage.setItem('step', JSON.stringify(step));
+  }, [step]);
+
+  useEffect(() => {
+    localStorage.setItem('contactData', JSON.stringify(contactData));
+  }, [contactData]);
+
+  useEffect(() => {
+    localStorage.setItem('educationData', JSON.stringify(educationData));
+  }, [educationData]);
+  useEffect(() => {
+    localStorage.setItem('experienceData', JSON.stringify(experienceData));
+  }, [experienceData]);
+  useEffect(() => {
+    localStorage.setItem('skillData', JSON.stringify(skillData));
+  }, [skillData]);
 
   function setStepCounter(num) {
     if (step < 5) {
@@ -86,7 +116,6 @@ function App() {
                 </>
               )}
             </div>
-
             <Resume contact={contactData} education={educationData} experience={experienceData} skill={skillData} />
           </div>
         )}
