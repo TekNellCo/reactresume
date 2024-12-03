@@ -6,6 +6,8 @@
   margin: 0px;
 }
 :root {
+  --Heading-Colors: #394d6b;
+  --Subheader-Colors: #545457;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -192,6 +194,7 @@
   word-wrap: break-word;
   list-style-position: inside;
   .resumeName {
+    color: var(--Heading-Colors);
     font-size: 20pt;
     line-height: 120%;
   }
@@ -422,19 +425,17 @@
     }
   }
 }
-.resumeName {
-  color: #394d6b;
-}
+
 .resumeSkills {
-  color: #394d6b;
+  color: var(--Heading-Colors);
 }
 
 .jobTitle {
-  color: #545457;
+  color: var(--Subheader-Colors);
 }
 
 .resumeCategories {
-  color: #394d6b;
+  color: var(--Heading-Colors);
 }
 
 .schoolLocation {
@@ -443,5 +444,5 @@
   font-weight: normal;
 }
 .resumeDegree {
-  color: #767676;
+  color: var(--Subheader-Colors);
 }

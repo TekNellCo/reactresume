@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Skills({ onSubmit, nextPage }) {
-  const [skillsArray, setSkillArray] = useState([]);
+  const [skillsArray, setSkillArray] = useState(() => {
+    const savedSkills = localStorage.getItem('skillsArray');
+    return savedSkills ? JSON.parse(savedSkills) : [];
+  });
+  useEffect(() => {
+    localStorage.setItem('skillsArray', JSON.stringify(skillsArray));
+  }, [skillsArray]);
   const [skill, setSkill] = useState('');
 
   function pushSkill(newSkill) {
