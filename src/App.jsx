@@ -6,12 +6,19 @@ import Skills from './skills';
 import Resume from './resume';
 
 function App() {
-  const [step, setStep] = useState(0);
-  const [contactData, setContactData] = useState({});
+  const [step, setStep] = useState(() => {
+    const savedStep = localStorage.getItem('step');
+    return savedStep ? JSON.parse(savedStep) : 0;
+  });
+  const [contactData, setContactData] = useState(() => {
+    const saveContacts = localStorage.getItem('contactData');
+    return saveContacts ? JSON.parse(saveContacts) : {};
+  });
+
   const [educationData, setEducationData] = useState([]);
   const [experienceData, setExperienceData] = useState([]);
   const [skillData, setSkillData] = useState([]);
-  const [populateContact, setPopulateContact] = useState(null);
+
   function setStepCounter(num) {
     if (step < 5) {
       setStep(step + 1);
@@ -60,10 +67,7 @@ function App() {
               )}
               {step === 5 && (
                 <>
-                  <Contact onSubmit={contactInfo} />
-                  <button className="resumeButton" onClick={() => setStep(4)}>
-                    Back
-                  </button>
+                  <Contact onSubmit={contactInfo} step={step} back={setStep} />
                 </>
               )}
               {step === 6 && (

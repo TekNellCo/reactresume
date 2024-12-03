@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Contact({ onSubmit, step }) {
+function Contact({ onSubmit, step, back }) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [city, setCity] = useState('');
@@ -9,10 +9,6 @@ function Contact({ onSubmit, step }) {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [website, setWebsite] = useState('');
-
-  if (step === 4 || step === 5) {
-    setFirstName(firstName);
-  }
 
   //   just making a space between these
   const contactCreate = () => {
@@ -126,6 +122,11 @@ function Contact({ onSubmit, step }) {
       <button onClick={contactCreate} className="contactFormButton">
         Submit
       </button>
+      {step === 5 && (
+        <button onClick={() => back(4)} className="contactFormButton">
+          Back
+        </button>
+      )}
     </div>
   );
 }
