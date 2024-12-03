@@ -1,8 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Experience({ onSubmit, nextPage }) {
   const [selectedExperience, setSelectedExperience] = useState('');
-  const [experienceArray, setExperienceArray] = useState([]);
+  const [experienceArray, setExperienceArray] = useState(() => {
+    const savedExperience = localStorage.getItem('experienceArray');
+    return savedExperience ? JSON.parse(savedExperience) : [];
+  });
+  useEffect(() => {
+    localStorage.setItem('experienceArray', JSON.stringify(experienceArray));
+  }, [experienceArray]);
   const [title, setTitle] = useState('');
   const [organization, setOrganization] = useState('');
   const [location, setLocation] = useState('');
@@ -18,8 +24,8 @@ function Experience({ onSubmit, nextPage }) {
       organization,
       location,
       description,
-      startDate: `${startMonth} ${startYear}`,
-      endDate: `${endMonth} ${endYear}`,
+      startDate: `${startMonth}/${startYear}`,
+      endDate: `${endMonth}/${endYear}`,
     };
     let updatedExperienceArray;
     if (selectedExperience) {

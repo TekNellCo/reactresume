@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
-function Contact({ onSubmit, step, back }) {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
-  const [zipCode, setZipCode] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [website, setWebsite] = useState('');
+function Contact({ onSubmit, step, back, contact_data = {} }) {
+  const [firstName, setFirstName] = useState(contact_data.firstName || '');
+  const [lastName, setLastName] = useState(contact_data.lastName || '');
+  const [city, setCity] = useState(contact_data.city || '');
+  const [state, setState] = useState(contact_data.state || '');
+  const [zipCode, setZipCode] = useState(contact_data.zipCode || '');
+  const [phone, setPhone] = useState(contact_data.phone || '');
+  const [email, setEmail] = useState(contact_data.email || '');
+  const [website, setWebsite] = useState(contact_data.website || '');
 
   //   just making a space between these
   const contactCreate = () => {

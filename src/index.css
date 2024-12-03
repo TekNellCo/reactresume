@@ -422,3 +422,20 @@
     }
   }
 }
+
+.jobTitle {
+  color: black;
+}
+
+.resumeCategories {
+  color: navy;
+}
+
+.schoolLocation {
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: normal;
+}
+.resumeDegree {
+  color: #767676;
+}

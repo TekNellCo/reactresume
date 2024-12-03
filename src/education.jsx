@@ -1,8 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Education({ onSubmit, nextPage }) {
   const [selectedEducation, setSelectedEducation] = useState('');
-  const [educationArray, setEducationArray] = useState([]);
+  const [educationArray, setEducationArray] = useState(() => {
+    const savedEducation = localStorage.getItem('educationArray');
+    return savedEducation ? JSON.parse(savedEducation) : [];
+  });
+  useEffect(() => {
+    localStorage.setItem('educationArray', JSON.stringify(educationArray));
+  }, [educationArray]);
   const [schoolName, setSchoolName] = useState('');
   const [schoolLocation, setSchoolLocation] = useState('');
   const [degree, setDegree] = useState('');

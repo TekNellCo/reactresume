@@ -97,7 +97,7 @@ function App() {
               )}
               {step === 5 && (
                 <>
-                  <Contact onSubmit={contactInfo} step={step} back={setStep} />
+                  <Contact onSubmit={contactInfo} step={step} back={setStep} contact_data={contactData} />
                 </>
               )}
               {step === 6 && (
