@@ -24,8 +24,10 @@ function Experience({ onSubmit, nextPage }) {
       organization,
       location,
       description,
-      startDate: `${startMonth}/${startYear}`,
-      endDate: `${endMonth}/${endYear}`,
+      startMonth,
+      startYear,
+      endMonth,
+      endYear,
     };
     let updatedExperienceArray;
     if (selectedExperience) {
@@ -56,10 +58,10 @@ function Experience({ onSubmit, nextPage }) {
     setOrganization(experience.organization);
     setLocation(experience.location);
     setDescription(experience.description);
-    setStartMonth(experience.startDate.split(' ')[0]);
-    setStartYear(experience.startDate.split(' ')[1]);
-    setEndMonth(experience.endDate.split(' ')[0]);
-    setEndYear(experience.endDate.split(' ')[1]);
+    setStartMonth(experience.startMonth);
+    setStartYear(experience.startYear);
+    setEndMonth(experience.endMonth);
+    setEndYear(experience.endYear);
     setSelectedExperience(experience); // Set experience to be edited
   }
 

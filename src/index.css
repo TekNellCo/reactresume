@@ -422,13 +422,19 @@
     }
   }
 }
+.resumeName {
+  color: #394d6b;
+}
+.resumeSkills {
+  color: #394d6b;
+}
 
 .jobTitle {
-  color: black;
+  color: #545457;
 }
 
 .resumeCategories {
-  color: navy;
+  color: #394d6b;
 }
 
 .schoolLocation {

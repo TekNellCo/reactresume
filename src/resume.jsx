@@ -22,7 +22,7 @@ function Resume({ contact, education, experience, skill }) {
           <div key={experienceItem.organization}>
             <h3 className="jobTitle">{experienceItem.title}</h3>
             <hr />
-            <p className="jobNameDates">{`${experienceItem.organization} | ${experienceItem.startDate} - ${experienceItem.endDate}`}</p>
+            <p className="jobNameDates">{`${experienceItem.organization} | ${experienceItem.startMonth}/${experienceItem.startYear} - ${experienceItem.endMonth}/${experienceItem.endYear}`}</p>
             <p className="resumeJobDescription"> {experienceItem.description}</p>
           </div>
         ))}
